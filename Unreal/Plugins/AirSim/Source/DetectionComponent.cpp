@@ -239,7 +239,7 @@ bool UDetectionComponent::calcBoundingFromViewInfo(AActor *actor, FBox2D &box_ou
         bool is_world_hit;
         for (FVector &point : points)
         {
-            is_world_hit = GetWorld()->LineTraceSingleByChannel(result, GetComponentLocation(), point, ECC_WorldStatic);
+            is_world_hit = GetWorld()->LineTraceSingleByChannel(result, GetComponentLocation(), point, ECC_Pawn);
             if (is_world_hit)
             {
                 if (result.GetActor() == actor)
@@ -257,7 +257,7 @@ bool UDetectionComponent::calcBoundingFromViewInfo(AActor *actor, FBox2D &box_ou
             for (int i = 0; i < 10; i++)
             {
                 FVector point = UKismetMathLibrary::RandomPointInBoundingBox(origin, extend);
-                is_world_hit = GetWorld()->LineTraceSingleByChannel(result, GetComponentLocation(), point, ECC_WorldStatic);
+                is_world_hit = GetWorld()->LineTraceSingleByChannel(result, GetComponentLocation(), point, ECC_Pawn);
                 if (is_world_hit)
                 {
                     if (result.GetActor() == actor)
@@ -362,7 +362,7 @@ bool UDetectionComponent::calcBoundingFromViewInfoComponent(UMeshComponent *comp
         bool is_world_hit;
         for (FVector &point : points)
         {
-            is_world_hit = GetWorld()->LineTraceSingleByChannel(result, GetComponentLocation(), point, ECC_WorldStatic);
+            is_world_hit = GetWorld()->LineTraceSingleByChannel(result, GetComponentLocation(), point, ECC_Pawn);
             if (is_world_hit)
             {
                 if (result.GetComponent() == component)
@@ -380,7 +380,7 @@ bool UDetectionComponent::calcBoundingFromViewInfoComponent(UMeshComponent *comp
             for (int i = 0; i < 10; i++)
             {
                 FVector point = UKismetMathLibrary::RandomPointInBoundingBox(origin, extend);
-                is_world_hit = GetWorld()->LineTraceSingleByChannel(result, GetComponentLocation(), point, ECC_WorldStatic);
+                is_world_hit = GetWorld()->LineTraceSingleByChannel(result, GetComponentLocation(), point, ECC_Pawn);
                 if (is_world_hit)
                 {
                     if (result.GetComponent() == component)
